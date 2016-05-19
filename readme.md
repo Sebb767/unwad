@@ -116,7 +116,7 @@ should all be escaped.
 
 Example usage:
 
-- extract all lumps from DOOM2.WAD
+- extract all lumps from DOOM2.WAD<br>
   `unwad DOOM2.WAD`
 
 - extract the PLAYPAL lump from DOOM2.WAD<br>
