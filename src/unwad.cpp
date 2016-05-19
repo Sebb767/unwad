@@ -1365,8 +1365,9 @@ unsigned long PatchToPng::crc_table[256];
  
 void showHelp()
 {
-  #include "readme.txt.h"
-  printf("\n%s\n", readme_txt);
+  //#include "readme.txt.h"
+  //printf("\n%s\n", readme_txt);
+  printf("Please consider reading the readme.");
 }
 
 

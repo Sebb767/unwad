@@ -11,7 +11,7 @@ cd ../..
 
 g++ -Wall \
 -I./include/pngpp -I./include \
-unwad.cpp qmus2mid.cpp \
+src/unwad.cpp include/qmus2mid/qmus2mid.cpp \
 include/minizip/minizip.o include/minizip/ioapi.o include/minizip/zip.o include/minizip/unzip.o \
 -lmagic -lpng -lz \
 -o unwad
@@ -22,9 +22,9 @@ echo building unwad.static
 
 g++ -Wall \
 -I./include/pngpp -I./include \
-unwad.cpp qmus2mid.cpp \
+src/unwad.cpp include/qmus2mid/qmus2mid.cpp \
 include/minizip/minizip.o include/minizip/ioapi.o include/minizip/zip.o include/minizip/unzip.o \
-/usr/lib/libmagic.a /usr/lib/libpng.a /usr/lib/libz.a \
+/usr/lib/x86_64-linux-gnu/libmagic.a /usr/lib/x86_64-linux-gnu/libpng.a /usr/lib/x86_64-linux-gnu/libz.a \
 -o unwad.static
 
 strip unwad.static
