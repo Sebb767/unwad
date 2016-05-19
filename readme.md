@@ -1,7 +1,10 @@
-Convert doom wads to pk3; extract lumps and convert them to common formats. 
+# unwad
 
-Usage:
+Convert doom wads to pk3; extract lumps and convert them to common formats.  This was simply forked from laetemn who saved this from the now gone Google code. I didn't do much execpt for fixing the readme.md and the compilation on Linux.
 
+## Usage
+
+```
 unwad [options] <wad> [<wad2> ...]
 
   -?              Print this help information and exit. All other options
@@ -80,6 +83,9 @@ unwad [options] <wad> [<wad2> ...]
                   Subsequent -i, -n, or -m arguments will override --raw
                   for that lump type.
                   (planned feature, not implemented yet)
+```
+
+## other
 
 All regular expressions are case-insensitive. Operations that deal with 
 lump names occur in the same order as the options are listed.
@@ -90,7 +96,7 @@ lump names occur in the same order as the options are listed.
   * If you use both -r and -g, -g will look at the first x characters of
     the renamed lump name rather than the original lump name.
 
-About filters:
+## filters
 
 More than one filter can be used. Filters having different T values will
 not interfere with each other. Filters having the same T value must all
@@ -110,27 +116,23 @@ should all be escaped.
 
 Example usage:
 
-  # extract all lumps from DOOM2.WAD
-  unwad DOOM2.WAD
+- extract all lumps from DOOM2.WAD
+  `unwad DOOM2.WAD`
 
-  # extract the PLAYPAL lump from DOOM2.WAD
-  unwad -f a/playpal DOOM2.WAD
+- extract the PLAYPAL lump from DOOM2.WAD<br>
+  `unwad -f a/playpal DOOM2.WAD`
 
-  # extract all lumps from mypwad.wad, using palette file "playpal.lump"
-  unwad -p playpal.lump mypwad.wad
+- extract all lumps from mypwad.wad, using palette file "playpal.lump"<br>
+  `unwad -p playpal.lump mypwad.wad`
 
-  # extract all archvile sprites and noises from DOOM2.WAD
-  unwad -t sn -f n/dsvi -f s/vile DOOM2.WAD
+- extract all archvile sprites and noises from DOOM2.WAD<br>
+  `unwad -t sn -f n/dsvi -f s/vile DOOM2.WAD`
 
-  # export all rock and slime flats from DOOM2.WAD. Notice the escape 
-  # character (back slash) before '|'.
-  unwad -t f -f f/rock\|slime DOOM2.WAD
+- export all rock and slime flats from DOOM2.WAD. Notice the escape character (back slash) before '|'.<br>
+  `unwad -t f -f f/rock\|slime DOOM2.WAD`
 
-  # extract all sprites and noises from HERETIC.WAD, renaming sprites
-  # beginning with "head" to begin with "lich." Notice the use of
-  # escape characters before '(', ')', and '\'.
-  unwad -t sn -r s/^head\(.*\)/lich\\1 HERETIC.WAD
+- extract all sprites and noises from HERETIC.WAD, renaming sprites, beginning with "head" to begin with "lich." Notice the use of escape characters before '(', ')', and '\'.<br>
+  `unwad -t sn -r s/^head\(.*\)/lich\\1 HERETIC.WAD`
 
-  # extract all lumps from DOOM2.WAD, leaving lump names in upper-case,
-  # ignoring unknown lumps beginning with "DP" (pc speaker sounds)
-  unwad -u -f u/!^dp DOOM2.WAD
+- extract all lumps from DOOM2.WAD, leaving lump names in upper-case, ignoring unknown lumps beginning with "DP" (pc speaker sounds)<br>
+  `unwad -u -f u/!^dp DOOM2.WAD`
